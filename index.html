@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ubuntu Architecture</title>
+<meta name="description" content="Ubuntu Architecture — studio d'architecture qui réinterprète les savoir-faire africains dans des espaces contemporains. Togo · Bénin · Niger · Côte d'Ivoire.">
+<link rel="icon" href="img/mask.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="is-loading">
+
+<svg class="grain" aria-hidden="true"><filter id="grainf"><feTurbulence type="fractalNoise" baseFrequency=".85" numOctaves="3" stitchTiles="stitch"/><feColorMatrix values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .55 0"/></filter><rect width="100%" height="100%" filter="url(#grainf)"/></svg>
+
+<!-- ============ LOADER / LOGO ANIMATION ============ -->
+<div class="loader" id="loader">
+  <svg class="construct" viewBox="0 0 1000 600" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+    <g class="c-lines">
+      <line x1="0" y1="300" x2="1000" y2="300"/>
+      <line x1="500" y1="0" x2="500" y2="600"/>
+      <line x1="140" y1="560" x2="860" y2="40"/>
+      <line x1="140" y1="40" x2="860" y2="560"/>
+      <circle cx="500" cy="300" r="190"/>
+      <circle cx="500" cy="300" r="120"/>
+    </g>
+    <g class="c-dash">
+      <ellipse cx="500" cy="300" rx="260" ry="110"/>
+      <ellipse cx="500" cy="300" rx="110" ry="250"/>
+      <ellipse cx="500" cy="300" rx="200" ry="160" transform="rotate(35 500 300)"/>
+      <ellipse cx="500" cy="300" rx="200" ry="160" transform="rotate(-35 500 300)"/>
+    </g>
+  </svg>
+  <div class="brand brand--xl" id="loaderBrand" aria-label="Ubuntu Architecture">
+    <span class="b-clip b-left"><span class="b-txt">UB</span></span>
+    <img class="b-mask" src="img/mask.png" alt="">
+    <span class="b-clip b-right"><span class="b-txt">N<em>TU.</em></span></span>
+    <span class="b-sub">Architecture</span>
+  </div>
+  <div class="loader-foot">
+    <span class="mono">Chargement <b id="count">000</b>%</span>
+    <span class="mono">« Je suis parce que nous sommes »</span>
+  </div>
+</div>
+
+<!-- ============ CURSOR ============ -->
+<div class="cursor" id="cursor"><span>Voir</span></div>
+
+<!-- ============ NAV ============ -->
+<header class="nav" id="nav">
+  <a href="#top" class="brand brand--sm" aria-label="Ubuntu Architecture, accueil">
+    <span class="b-txt">UB</span><img class="b-mask" src="img/mask.png" alt=""><span class="b-txt">N<em>TU.</em></span>
+  </a>
+  <nav class="nav-links">
+    <a href="#studio">Studio</a>
+    <a href="#projets">Projets</a>
+    <a href="#approche">Approche</a>
+    <a href="#avenir">À venir</a>
+    <a href="#fondateurs">Équipe</a>
+  </nav>
+  <a href="#contact" class="pill pill--dark">Démarrer un projet <i>→</i></a>
+  <button class="burger" id="burger" aria-label="Menu"><span></span><span></span></button>
+</header>
+<div class="mnav" id="mnav">
+  <a href="#studio">Studio</a><a href="#projets">Projets</a><a href="#approche">Approche</a><a href="#avenir">À venir</a><a href="#fondateurs">Équipe</a><a href="#contact">Contact</a>
+</div>
+
+<main id="top">
+
+<!-- ============ HERO ============ -->
+<section class="hero hero--v2">
+  <div class="hero3d" id="hero3d" aria-hidden="true"><img class="hero3d-fallback" src="img/mask.png" alt=""></div>
+  <div class="lens" id="lens" aria-hidden="true"></div>
+  <div class="hero-inner">
+    <div class="hero-meta">
+      <span class="mono">Ubuntu Architecture — Studio de création architecturale</span>
+      <span class="mono">Togo · Bénin · Niger · Côte d'Ivoire — 2021/2026</span>
+    </div>
+    <h1 class="hero-title">
+      <span class="line"><span>Une</span></span>
+      <span class="line"><span>architecture</span></span>
+      <span class="line"><span>qui <em class="serif">raconte</em></span></span>
+      <span class="line"><span>d'où nous</span></span>
+      <span class="line"><span>venons.</span></span>
+    </h1>
+    <div class="hero-row">
+      <p class="hero-lead">Nous concevons des lieux qui se vivent autant qu'ils se regardent, où la terre, la brique, le claustra et la lumière font dialoguer tradition africaine et modernité.</p>
+      <a href="#projets" class="orb" aria-label="Voir les projets"><span>Voir les<br>projets</span><i></i></a>
+      <a href="#contact" class="pill pill--orange">Parlons de votre projet <i>→</i></a>
+    </div>
+  </div>
+</section>
+
+<section class="strip-sec">
+  <div class="strip" id="strip">
+    <a class="strip-item" data-project="ubuntu"><img src="img/ubuntu-1-s.webp" alt="Ubuntu House, façade terracotta"><span class="tag">Ubuntu House</span></a>
+    <a class="strip-item" data-project="villal"><img src="img/villal-11-s.webp" alt="Villa L, Kpalimé"><span class="tag">Villa L — Kpalimé</span></a>
+    <a class="strip-item" data-project="restaurant"><img src="img/restaurant-1-s.webp" alt="Restaurant Africain, façade"><span class="tag">Restaurant Africain</span></a>
+    <a class="strip-item" data-project="terracotta"><img src="img/terracotta-1-s.webp" alt="Chambre Terracotta"><span class="tag">Chambre Terracotta</span></a>
+    <a class="strip-item" data-project="duplex"><img src="img/duplex-2-s.webp" alt="Duplex bioclimatique"><span class="tag">Duplex Bioclimatique</span></a>
+  </div>
+</section>
+
+<!-- ============ MANIFESTO ============ -->
+<section class="manifesto" id="studio">
+  <span class="mono center">(01) — Le studio</span>
+  <h2 class="manifesto-title">Minimaliste, chaleureuse,<br>la tradition rencontre<br>l'humain.</h2>
+  <p class="manifesto-text reveal-words">Nous abordons chaque projet comme une composition sensible, presque instinctive, où la matière, la lumière, la couleur et le détail participent pleinement à l'identité d'un lieu. Nous réinterprétons les techniques vernaculaires africaines dans des espaces contemporains — pour une architecture profondément liée à ceux qui l'habitent.</p>
+  <div class="stats">
+    <div><b data-count="5" data-projets-count>0</b><span>projets signature<br>présentés</span></div>
+    <div><b data-count="4">0</b><span>pays d'expérience<br>Togo · Bénin · Niger · Côte d'Ivoire</span></div>
+    <div><b data-count="8">0</b><span>agences &amp; structures<br>où nous avons exercé</span></div>
+    <div><b data-count="26">0</b><span>régions couvertes<br>mission GUPS Bénin</span></div>
+  </div>
+</section>
+
+<!-- ============ PROJETS (horizontal) ============ -->
+<section class="hscroll" id="projets">
+  <div class="hs-track" id="hsTrack">
+    <div class="hs-word" aria-hidden="true">PROJETS</div>
+    <!-- cards injected by JS -->
+  </div>
+  <div class="hs-hint mono">Faites défiler — cliquez pour explorer</div>
+</section>
+
+<!-- ============ INDEX ============ -->
+<section class="index">
+  <div class="sec-head">
+    <span class="mono">(02) — Index des projets</span>
+    <h2 class="sec-title"><span data-projets-mot>Cinq lieux,</span><br><em class="serif">une même âme.</em></h2>
+  </div>
+  <ul class="index-list" id="indexList"></ul>
+  <div class="index-preview" id="indexPreview"><img alt=""></div>
+</section>
+
+<!-- ============ SKETCH TO RENDER ============ -->
+<section class="s2r">
+  <div class="sec-head">
+    <span class="mono">(04) — De l'esquisse à la matière</span>
+    <h2 class="sec-title">Chaque projet commence<br>par un <em class="serif">dessin.</em></h2>
+    <p class="sec-sub">Faites glisser pour passer de l'intention à la réalité.</p>
+  </div>
+  <div class="s2r-tabs" id="s2rTabs">
+    <button class="on" data-i="0">Duplex</button>
+    <button data-i="1">Ubuntu House</button>
+    <button data-i="2">Chambre Terracotta</button>
+  </div>
+  <div class="compare" id="compare">
+    <img class="cmp-a" alt="Rendu photoréaliste">
+    <div class="cmp-b"><img alt="Illustration du projet"></div>
+    <div class="cmp-handle"><span>↔</span></div>
+    <span class="cmp-l mono">Esquisse</span><span class="cmp-r mono">Rendu</span>
+  </div>
+</section>
+
+<!-- ============ MARQUEE ============ -->
+<div class="marquee" aria-hidden="true">
+  <div class="mq-inner">
+    <span>Terre ✦ Brique ✦ Claustra ✦ Lumière ✦ Mémoire ✦ Pisé ✦ Moucharabieh ✦ Bioclimatique ✦&nbsp;</span>
+    <span>Terre ✦ Brique ✦ Claustra ✦ Lumière ✦ Mémoire ✦ Pisé ✦ Moucharabieh ✦ Bioclimatique ✦&nbsp;</span>
+  </div>
+</div>
+
+<!-- ============ APPROCHE ============ -->
+<section class="approche" id="approche">
+  <div class="sec-head">
+    <span class="mono">(05) — Approche</span>
+    <h2 class="sec-title">Fonctionnalité, émotion,<br><em class="serif">identité.</em></h2>
+  </div>
+  <div class="pillars">
+    <article class="pillar">
+      <span class="p-num">01</span>
+      <div class="p-img"><img src="img/terracotta-6-s.webp" alt="" loading="lazy"></div>
+      <h3>La matière comme récit</h3>
+      <p>Terre, brique, pisé, pierre : des matériaux qui portent les traces d'un territoire et créent des atmosphères chaleureuses, incarnées et singulières.</p>
+    </article>
+    <article class="pillar">
+      <span class="p-num">02</span>
+      <div class="p-img"><img src="img/ubuntu-2-s.webp" alt="" loading="lazy"></div>
+      <h3>La lumière apprivoisée</h3>
+      <p>Claustras, moucharabiehs, débords de toiture : une conception bioclimatique qui filtre le soleil, ventile naturellement et dessine des ombres vivantes.</p>
+    </article>
+    <article class="pillar">
+      <span class="p-num">03</span>
+      <div class="p-img"><img src="img/restaurant-5-s.webp" alt="" loading="lazy"></div>
+      <h3>La culture habitée</h3>
+      <p>Masques, motifs, art contemporain africain : des espaces où le design d'aujourd'hui embrasse profondément ses racines et l'esprit de partage.</p>
+    </article>
+  </div>
+</section>
+
+<!-- ============ SAVOIR-FAIRE (stacked cards) ============ -->
+<section class="savoir dark" id="savoir-faire" data-dark>
+  <div class="aurora aurora--b" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+  <div class="savoir-inner">
+    <div class="savoir-text">
+      <span class="mono">Ce que nous faisons</span>
+      <h2 class="sec-title">Du premier croquis<br>au lieu <em class="serif">habité.</em></h2>
+      <p>Nous accompagnons chaque projet de bout en bout, avec la même exigence de matière, de lumière et d'identité.</p>
+      <div class="stack-nav">
+        <button class="stack-btn" id="stackPrev" aria-label="Carte précédente">←</button>
+        <div class="stack-dots" id="stackDots"></div>
+        <button class="stack-btn" id="stackNext" aria-label="Carte suivante">→</button>
+      </div>
+    </div>
+    <div class="stack" id="stack">
+      <article class="scard"><div class="scard-top"><span class="mono">01</span><h3>Conception architecturale</h3></div><img src="img/villal-16-s.webp" alt="" loading="lazy"><p>Villas, logements et équipements publics : de l'esquisse au dossier de permis.</p></article>
+      <article class="scard"><div class="scard-top"><span class="mono">02</span><h3>Architecture intérieure</h3></div><img src="img/terracotta-4-s.webp" alt="" loading="lazy"><p>Ambiances, mobilier sur mesure et matières naturelles qui racontent un lieu.</p></article>
+      <article class="scard"><div class="scard-top"><span class="mono">03</span><h3>Visualisation 3D</h3></div><img src="img/duplex-6-s.webp" alt="" loading="lazy"><p>Rendus photoréalistes et illustrations pour voir un projet avant qu'il existe.</p></article>
+      <article class="scard"><div class="scard-top"><span class="mono">04</span><h3>Suivi de chantier</h3></div><img src="img/villal-13-s.webp" alt="" loading="lazy"><p>Supervision, relevés de terrain et coordination jusqu'à la livraison.</p></article>
+      <article class="scard"><div class="scard-top"><span class="mono">05</span><h3>Urbanisme &amp; concours</h3></div><img src="img/illus-4-s.webp" alt="" loading="lazy"><p>Lotissements, plans locaux d'urbanisme et programmes publics.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ QUOTE ============ -->
+<section class="quote">
+  <div class="quote-bg"><img src="img/villal-6.webp" alt="" loading="lazy"></div>
+  <blockquote>
+    <p>« L'architecture, c'est mettre de l'ordre dans un ordre déjà défini par <em class="serif">la nature.</em> »</p>
+    <cite class="mono">— Kouawo Kevin, co-fondateur</cite>
+  </blockquote>
+</section>
+
+
+<!-- ============ À VENIR ============ -->
+<section class="avenir" id="avenir">
+  <div class="sec-head">
+    <span class="mono">(06) — À venir</span>
+    <h2 class="sec-title">Ce qui se <em class="serif">dessine.</em></h2>
+  </div>
+  <article class="av-card">
+    <div class="av-img"><img src="img/illus-4.webp" alt="La Cité des Marguerites, illustration" loading="lazy"><span class="av-badge">En conception</span></div>
+    <div class="av-text">
+      <span class="mono">Lotissement résidentiel</span>
+      <h3>La Cité des Marguerites</h3>
+      <p>Un havre de paix moderne : des rues spacieuses, des villas aux tons pêche et blanc coiffées de toits plats, de vastes balcons habillés de lattes de bois, des palmiers qui encadrent les allées. Plus qu'un projet immobilier, une invitation quotidienne à vivre dans un cadre lumineux et serein.</p>
+      <span class="mono av-soon">Rendus bientôt disponibles</span>
+    </div>
+  </article>
+</section>
+
+<!-- ============ FONDATEURS ============ -->
+<section class="team" id="fondateurs">
+  <div class="sec-head">
+    <span class="mono">(07) — Les fondateurs</span>
+    <h2 class="sec-title">Ceux qui <em class="serif">bâtissent</em><br>Ubuntu.</h2>
+    <p class="sec-sub">« Je suis parce que nous sommes. » Ubuntu est né d'une équipe avant d'être un cabinet.</p>
+  </div>
+  <div class="team-list" id="teamList"><!-- rempli depuis projets.js (FONDATEURS) --></div>
+</section>
+
+<!-- ============ CTA / FOOTER ============ -->
+<section class="cta dark" id="contact" data-dark>
+  <div class="aurora aurora--c" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+  <div class="cta-word" aria-hidden="true">UBUNTU</div>
+  <div class="cta-body">
+    <h2 class="cta-title">Construisons ensemble<br>ce qui <em class="serif">vous ressemble.</em></h2>
+    <p>Une villa, un intérieur, un lieu de vie ou de commerce ? Racontez-nous votre histoire — nous lui donnerons une forme.</p>
+    <a class="pill pill--orange pill--xl" href="mailto:kkouawo@gmail.com?subject=Nouveau%20projet">Démarrer un projet <i>→</i></a>
+    <div class="contact-grid">
+      <div class="ci"><span class="mono">E-mail</span><a href="mailto:kkouawo@gmail.com"><b>kkouawo@gmail.com</b></a><button class="copy" data-copy="kkouawo@gmail.com">Copier</button></div>
+      <div class="ci"><span class="mono">Téléphone</span><a href="tel:+22891965618"><b>+228 91 96 56 18</b></a><button class="copy" data-copy="+228 91 96 56 18">Copier</button></div>
+      <div class="ci"><span class="mono">WhatsApp</span><a href="https://wa.me/22891965618" target="_blank" rel="noopener"><b>Écrire sur WhatsApp ↗</b></a></div>
+    </div>
+  </div>
+  <footer class="foot">
+    <a href="#top" class="brand brand--sm"><span class="b-txt">UB</span><img class="b-mask" src="img/mask.png" alt=""><span class="b-txt">N<em>TU.</em></span></a>
+    <nav><a href="https://www.instagram.com/kkouawo/" target="_blank" rel="noopener">Instagram</a><a href="https://www.tiktok.com/@kkouawo" target="_blank" rel="noopener">TikTok</a><a href="https://www.pinterest.com/kkouawo/" target="_blank" rel="noopener">Pinterest</a><a href="https://x.com/kkouawo" target="_blank" rel="noopener">X</a><a href="https://www.linkedin.com/in/kkouawo/" target="_blank" rel="noopener">LinkedIn</a></nav>
+    <span class="mono">© 2026 Ubuntu Architecture</span>
+  </footer>
+</section>
+</main>
+
+<!-- ============ PROJECT OVERLAY ============ -->
+<div class="proj" id="proj" aria-hidden="true">
+  <div class="proj-inner" id="projInner">
+    <button class="proj-close pill" id="projClose">← Retour</button>
+    <div class="proj-head">
+      <span class="mono" id="pType"></span>
+      <h2 id="pName"></h2>
+      <span class="mono" id="pNum"></span>
+    </div>
+    <div class="proj-cover"><img id="pCover" alt=""></div>
+    <div class="proj-text">
+      <span class="mono">L'histoire</span>
+      <p id="pDesc"></p>
+    </div>
+    <div class="proj-gallery" id="pGallery"></div>
+    <a class="proj-next" id="pNext"><span class="mono">Projet suivant</span><b></b></a>
+  </div>
+</div>
+<div class="lightbox" id="lightbox"><img alt=""><button class="pill" aria-label="Fermer">✕</button></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="projets.js"></script>
+<script src="main.js"></script>
+<script src="mask-shape.js"></script>
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}</script>
+<script type="module" src="hero3d.js"></script>
+</body>
+</html>
