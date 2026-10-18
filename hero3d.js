@@ -4,8 +4,8 @@
    construction rings (the drafting lines of the loader).
    Intro: morph(rect) places the 3D mask exactly over the 2D loader mask,
    release() then flies it to its hero position. */
-import * as THREE from 'three';
-import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
+import * as THREE from './vendor/three.module.js';
+import { RoomEnvironment } from './vendor/RoomEnvironment.js';
 
 const host = document.getElementById('hero3d');
 const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;

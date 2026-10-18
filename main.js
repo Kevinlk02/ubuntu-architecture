@@ -1,4 +1,5 @@
 /* Les données des projets sont dans projets.js */
+const esc = v => String(v).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 const ext = (p, small) => p.startsWith('img/illus') ? `${p}${small ? '-s' : ''}.webp` : `${p}${small ? '-s' : ''}.webp`;
 
 const $ = (s, c = document) => c.querySelector(s);
@@ -25,8 +26,8 @@ PROJECTS.forEach((p, i) => {
   a.dataset.project = p.id;
   a.style.left = l + '%';
   a.style.marginTop = (y / 100 * 0.75) * 24 + 'vw';
-  a.innerHTML = `<div class="hc-in" style="transform:rotate(${r}deg)"><img src="${ext(p.cover, true)}" alt="${p.name}" loading="lazy"></div>
-    <span class="tag">${p.name}</span><span class="hc-n">0${i + 1}</span>`;
+  a.innerHTML = `<div class="hc-in" style="transform:rotate(${Number(r)}deg)"><img src="${esc(ext(p.cover, true))}" alt="${esc(p.name)}" loading="lazy"></div>
+    <span class="tag">${esc(p.name)}</span><span class="hc-n">0${i + 1}</span>`;
   track.appendChild(a);
 });
 const list = $('#indexList');
@@ -34,7 +35,7 @@ PROJECTS.forEach((p, i) => {
   const li = document.createElement('li');
   li.dataset.project = p.id;
   li.dataset.img = ext(p.cover, true);
-  li.innerHTML = `<span class="il-n">0${i + 1}</span><span class="il-name">${p.name}</span><span class="il-type">${p.type}</span><span class="il-arrow">→</span>`;
+  li.innerHTML = `<span class="il-n">0${i + 1}</span><span class="il-name">${esc(p.name)}</span><span class="il-type">${esc(p.type)}</span><span class="il-arrow">→</span>`;
   list.appendChild(li);
 });
 
@@ -128,7 +129,7 @@ function openProject(id) {
   $('#pDesc').textContent = p.desc;
   const imgs = [...p.images.filter(x => x !== p.cover).map(x => ({ src: x })), ...p.illus.filter(x => x !== p.cover).map(x => ({ src: x, illus: true }))];
   $('#pGallery').innerHTML = imgs.map(o =>
-    `<figure class="${o.illus ? 'illus' : ''}" data-full="${ext(o.src)}"><img src="${ext(o.src, true)}" alt="${p.name}" loading="lazy"></figure>`).join('');
+    `<figure class="${o.illus ? 'illus' : ''}" data-full="${esc(ext(o.src))}"><img src="${esc(ext(o.src, true))}" alt="${esc(p.name)}" loading="lazy"></figure>`).join('');
   $('b', $('#pNext')).textContent = next.name + ' →';
   $('#pNext').dataset.next = next.id;
   proj.scrollTop = 0;
@@ -196,13 +197,13 @@ cmp.addEventListener('pointerup', () => dragging = false);
 
 /* ============ WORD SPLIT ============ */
 $$('.reveal-words').forEach(el => {
-  el.innerHTML = el.textContent.trim().split(/\s+/).map(w => `<span class="w">${w}</span>`).join(' ');
+  el.innerHTML = el.textContent.trim().split(/\s+/).map(w => `<span class="w">${esc(w)}</span>`).join(' ');
 });
 
 /* ============ LOADER + INTRO ============ */
 const loader = $('#loader');
 const sub = $('.b-sub', loader);
-sub.innerHTML = [...sub.textContent].map(c => `<span class="ch">${c}</span>`).join('');
+sub.innerHTML = [...sub.textContent].map(c => `<span class="ch">${esc(c)}</span>`).join('');
 
 function preload(srcs) {
   let done = 0;
@@ -363,6 +364,21 @@ if (!hasGsap) {
   addEventListener('load', () => ScrollTrigger.refresh());
 }
 
+/* ============ CONTACTS (assemblés ici pour ne pas apparaître en clair dans le code source) ============ */
+const CONTACT = (() => {
+  const u = ['kko', 'uawo'].join(''), d = ['gmail', 'com'].join('.');
+  const n = ['228', '91', '96', '56', '18'];
+  return { mail: u + '@' + d, telShow: '+' + n.join(' '), tel: '+' + n.join(''), wa: n.join('') };
+})();
+document.querySelectorAll('[data-contact]').forEach(a => {
+  const k = a.dataset.contact;
+  if (k === 'mail' || k === 'mail-cta') a.href = 'mailto:' + CONTACT.mail + (k === 'mail-cta' ? '?subject=' + encodeURIComponent('Nouveau projet') : '');
+  if (k === 'mail') a.querySelector('b').textContent = CONTACT.mail;
+  if (k === 'tel') { a.href = 'tel:' + CONTACT.tel; a.querySelector('b').textContent = CONTACT.telShow; }
+  if (k === 'wa') a.href = 'https://wa.me/' + CONTACT.wa;
+});
+document.querySelectorAll('[data-copy-contact]').forEach(b => { b.dataset.copy = b.dataset.copyContact === 'mail' ? CONTACT.mail : CONTACT.telShow; });
+
 /* ============ COPY CONTACT ============ */
 document.querySelectorAll('.copy').forEach(b => b.addEventListener('click', () => {
   const done = () => { b.textContent = 'Copié ✓'; setTimeout(() => b.textContent = 'Copier', 1800); };
@@ -437,14 +453,14 @@ document.querySelectorAll('.copy').forEach(b => b.addEventListener('click', () =
   if (!box || typeof FONDATEURS === 'undefined') return;
   box.innerHTML = FONDATEURS.map((f, i) => `
     <article class="member${i % 2 ? ' member--alt' : ''}">
-      <figure class="member-photo"><img src="${f.photo}" alt="Portrait de ${f.nom}" loading="lazy"></figure>
+      <figure class="member-photo"><img src="${esc(f.photo)}" alt="Portrait de ${esc(f.nom)}" loading="lazy"></figure>
       <div class="member-text">
-        <blockquote class="member-quote">« ${f.citation} »</blockquote>
+        <blockquote class="member-quote">« ${esc(f.citation)} »</blockquote>
         <div class="member-id">
-          <h3>${f.nom}</h3>
-          <span class="mono">${f.role}</span>
+          <h3>${esc(f.nom)}</h3>
+          <span class="mono">${esc(f.role)}</span>
         </div>
-        <p>${f.bio}</p>
+        <p>${esc(f.bio)}</p>
       </div>
     </article>`).join('');
   if (window.gsap && window.ScrollTrigger) {

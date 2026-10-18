@@ -2,13 +2,14 @@
 <html lang="fr">
 <head>
 <meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self'; connect-src 'self'; media-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'; frame-src 'none'; worker-src 'self' blob:; manifest-src 'self'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Ubuntu Architecture</title>
 <meta name="description" content="Ubuntu Architecture — studio d'architecture qui réinterprète les savoir-faire africains dans des espaces contemporains. Togo · Bénin · Niger · Côte d'Ivoire.">
 <link rel="icon" href="img/mask.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="securite.js"></script>
+<link rel="stylesheet" href="fonts/fonts.css">
 <link rel="stylesheet" href="style.css">
 </head>
 <body class="is-loading">
@@ -260,16 +261,16 @@
   <div class="cta-body">
     <h2 class="cta-title">Construisons ensemble<br>ce qui <em class="serif">vous ressemble.</em></h2>
     <p>Une villa, un intérieur, un lieu de vie ou de commerce ? Racontez-nous votre histoire — nous lui donnerons une forme.</p>
-    <a class="pill pill--orange pill--xl" href="mailto:kkouawo@gmail.com?subject=Nouveau%20projet">Démarrer un projet <i>→</i></a>
+    <a class="pill pill--orange pill--xl" data-contact="mail-cta" href="#contact">Démarrer un projet <i>→</i></a>
     <div class="contact-grid">
-      <div class="ci"><span class="mono">E-mail</span><a href="mailto:kkouawo@gmail.com"><b>kkouawo@gmail.com</b></a><button class="copy" data-copy="kkouawo@gmail.com">Copier</button></div>
-      <div class="ci"><span class="mono">Téléphone</span><a href="tel:+22891965618"><b>+228 91 96 56 18</b></a><button class="copy" data-copy="+228 91 96 56 18">Copier</button></div>
-      <div class="ci"><span class="mono">WhatsApp</span><a href="https://wa.me/22891965618" target="_blank" rel="noopener"><b>Écrire sur WhatsApp ↗</b></a></div>
+      <div class="ci"><span class="mono">E-mail</span><a data-contact="mail" href="#contact"><b>…</b></a><button class="copy" data-copy-contact="mail">Copier</button></div>
+      <div class="ci"><span class="mono">Téléphone</span><a data-contact="tel" href="#contact"><b>…</b></a><button class="copy" data-copy-contact="tel">Copier</button></div>
+      <div class="ci"><span class="mono">WhatsApp</span><a data-contact="wa" href="#contact" target="_blank" rel="noopener noreferrer"><b>Écrire sur WhatsApp ↗</b></a></div>
     </div>
   </div>
   <footer class="foot">
     <a href="#top" class="brand brand--sm"><span class="b-txt">UB</span><img class="b-mask" src="img/mask.png" alt=""><span class="b-txt">N<em>TU.</em></span></a>
-    <nav><a href="https://www.instagram.com/kkouawo/" target="_blank" rel="noopener">Instagram</a><a href="https://www.tiktok.com/@kkouawo" target="_blank" rel="noopener">TikTok</a><a href="https://www.pinterest.com/kkouawo/" target="_blank" rel="noopener">Pinterest</a><a href="https://x.com/kkouawo" target="_blank" rel="noopener">X</a><a href="https://www.linkedin.com/in/kkouawo/" target="_blank" rel="noopener">LinkedIn</a></nav>
+    <nav><a href="https://www.instagram.com/kkouawo/" target="_blank" rel="noopener noreferrer">Instagram</a><a href="https://www.tiktok.com/@kkouawo" target="_blank" rel="noopener noreferrer">TikTok</a><a href="https://www.pinterest.com/kkouawo/" target="_blank" rel="noopener noreferrer">Pinterest</a><a href="https://x.com/kkouawo" target="_blank" rel="noopener noreferrer">X</a><a href="https://www.linkedin.com/in/kkouawo/" target="_blank" rel="noopener noreferrer">LinkedIn</a></nav>
     <span class="mono">© 2026 Ubuntu Architecture</span>
   </footer>
 </section>
@@ -295,13 +296,12 @@
 </div>
 <div class="lightbox" id="lightbox"><img alt=""><button class="pill" aria-label="Fermer">✕</button></div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="vendor/gsap.min.js"></script>
+<script src="vendor/ScrollTrigger.min.js"></script>
+<script src="vendor/lenis.min.js"></script>
 <script src="projets.js"></script>
 <script src="main.js"></script>
 <script src="mask-shape.js"></script>
-<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}</script>
 <script type="module" src="hero3d.js"></script>
 </body>
 </html>
