@@ -240,7 +240,9 @@ if (!hasGsap) {
   gsap.set('.strip-item', { clipPath: 'inset(100% 0 0 0)' });
   gsap.set(['.hero-meta', '.hero-row', '.nav'], { opacity: 0 });
 
+  const isPhone = matchMedia('(max-width: 900px)').matches;
   const tl = gsap.timeline({ defaults: { ease: 'expo.out' } });
+  if (isPhone) tl.timeScale(1.7); // shorter intro on phones
   tl.to('.c-lines > *', { strokeDashoffset: 0, duration: 1.6, stagger: .08, ease: 'power2.inOut' }, 0)
     .to('.c-dash > *', { opacity: .9, duration: .8, stagger: .1, ease: 'power1.out' }, .3)
     .fromTo('.c-dash > *', { rotation: -25, scale: .7, transformOrigin: '500px 300px' }, { rotation: 0, scale: 1, duration: 2, stagger: .1 }, .3)
@@ -258,7 +260,7 @@ if (!hasGsap) {
   const ready3d = new Promise(r => {
     if (window.HERO3D) return r(true);
     addEventListener('hero3d:ready', () => r(true), { once: true });
-    setTimeout(() => r(false), 3000);
+    setTimeout(() => r(false), isPhone ? 1500 : 3000);
   });
   Promise.all([Promise.all(ps), new Promise(r => tl.eventCallback('onComplete', r)), ready3d]).then(([, , has3d]) => {
     counter.textContent = '100';
@@ -271,6 +273,7 @@ if (!hasGsap) {
       .to(['.nav', '.hero-meta', '.hero-row'], { opacity: 1, duration: 1, stagger: .1, ease: 'power2.out' }, at + .3)
       .to('.strip-item', { clipPath: 'inset(0% 0 0 0)', duration: 1.4, stagger: .08, ease: 'expo.inOut' }, at + .2);
     const out = gsap.timeline({ defaults: { ease: 'expo.inOut' } });
+    if (isPhone) out.timeScale(1.4);
 
     if (has3d && window.HERO3D) {
       // 2D mask -> 3D mask, same spot; letters slide back behind it; then it flies to the hero
@@ -414,7 +417,15 @@ document.querySelectorAll('.copy').forEach(b => b.addEventListener('click', () =
   }
   document.getElementById('stackNext').addEventListener('click', () => go(cur + 1));
   document.getElementById('stackPrev').addEventListener('click', () => go(cur - 1));
-  stack.addEventListener('click', () => go(cur + 1));
+  // swipe left / right on touch screens
+  let sx = null, swiped = false;
+  stack.addEventListener('touchstart', e => { sx = e.touches[0].clientX; swiped = false; }, { passive: true });
+  stack.addEventListener('touchend', e => {
+    if (sx === null) return;
+    const dx = e.changedTouches[0].clientX - sx; sx = null;
+    if (Math.abs(dx) > 40) { swiped = true; go(cur + (dx < 0 ? 1 : -1)); }
+  });
+  stack.addEventListener('click', () => { if (swiped) { swiped = false; return; } go(cur + 1); });
   stack.addEventListener('pointerenter', () => clearInterval(timer));
   stack.addEventListener('pointerleave', restart);
   render(); restart();

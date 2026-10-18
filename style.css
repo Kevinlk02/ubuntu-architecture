@@ -76,8 +76,9 @@ em{font-style:normal}
 .mnav{position:fixed;inset:0;z-index:6900;background:var(--ink);display:flex;flex-direction:column;justify-content:center;gap:8px;padding:var(--pad);clip-path:inset(0 0 100% 0);transition:clip-path .7s var(--ease)}
 .mnav.on{clip-path:inset(0 0 0 0)}
 .mnav a{color:var(--paper);font-family:var(--wide);font-variation-settings:"wdth" 125;font-weight:800;font-size:44px;text-transform:uppercase;line-height:1.1}
-body.menu-open .nav .brand,body.menu-open .burger span{filter:invert(1)}
-body.menu-open .nav .brand em{filter:invert(1)}
+body.menu-open .nav .brand{color:var(--paper)!important}
+body.menu-open .nav .brand .b-mask{filter:invert(1)!important}
+body.menu-open .burger span{background:var(--paper)!important}
 
 /* ============ PILLS ============ */
 .pill{display:inline-flex;align-items:center;gap:10px;padding:11px 18px;border:1px solid var(--ink);border-radius:99px;font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;white-space:nowrap;position:relative;overflow:hidden;isolation:isolate;transition:color .45s var(--ease),border-color .45s}
@@ -459,3 +460,70 @@ body.morphing .hero3d{z-index:8100}
 /* parcours: founder tags */
 .tl-who{display:inline-block;margin-left:10px;vertical-align:middle;font:600 10px/1 var(--body);letter-spacing:.12em;text-transform:uppercase;font-style:normal;color:var(--orange);border:1px solid currentColor;border-radius:99px;padding:5px 9px;transform:translateY(-.15em)}
 .tools{row-gap:14px}
+
+/* =====================================================================
+   MOBILE — ergonomie téléphone (≤ 900 px)
+   ===================================================================== */
+.hs-mhead{display:none}
+@media (max-width:900px){
+  /* performance: no full-screen grain, static colour glows */
+  .grain{display:none}
+  .aurora i{animation:none}
+  .aurora{filter:blur(50px)}
+
+  /* nav: keep the close button reachable when the menu is open */
+  body.menu-open .nav{transform:none!important;background:transparent!important}
+  .nav{padding:12px var(--pad)}
+  .mnav a{font-size:clamp(30px,10vw,44px)}
+
+  /* hero */
+  .hero--v2 .hero-meta{display:none}
+  .hero-inner{padding-top:90px;padding-bottom:28px}
+  .hero--v2 .hero-row{gap:16px;align-items:center}
+  .hero--v2 .hero-lead{flex:1 1 100%;font-size:15px}
+  .orb{width:72px;height:72px;gap:4px;font-size:9px}
+  .orb i{height:14px}
+  .hero--v2 .hero-row .pill{flex:1;justify-content:center}
+
+  /* photo strip -> swipeable row */
+  .strip{height:auto;overflow-x:auto;scroll-snap-type:x mandatory;gap:10px;margin:0 calc(var(--pad) * -1);padding:0 var(--pad) 6px;scrollbar-width:none}
+  .strip::-webkit-scrollbar{display:none}
+  .strip-item,.strip-item:nth-child(n+4){display:block;flex:0 0 72vw;aspect-ratio:4/3;scroll-snap-align:start}
+  .strip:hover .strip-item:hover{flex-grow:0}
+  .tag{white-space:normal;max-width:calc(100% - 24px)}
+
+  /* PROJETS -> title + swipeable cards */
+  .hscroll{padding:72px 0 40px}
+  .hs-mhead{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:0 var(--pad);margin-bottom:24px}
+  .hs-mtitle{font-family:var(--wide);font-variation-settings:"wdth" 125;font-weight:600;font-size:clamp(40px,13vw,64px);line-height:.9;text-transform:uppercase;letter-spacing:-.02em}
+  .hs-mhead .mono{color:var(--muted);white-space:nowrap}
+  .hs-word{display:none}
+  .hs-track{display:flex;width:auto;min-width:0;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:0 var(--pad) 48px;scrollbar-width:none}
+  .hs-track::-webkit-scrollbar{display:none}
+  .hs-card{flex:0 0 78vw;position:relative;top:auto!important;left:auto!important;margin:0!important;width:auto;scroll-snap-align:start;transform:none!important}
+  .hs-card .tag{white-space:nowrap}
+
+  /* service cards: room for the text */
+  .stack{aspect-ratio:auto;height:min(132vw,560px)}
+  .scard{padding:18px;gap:12px}
+  .scard p{font-size:14px}
+
+  /* quote: no oversized empty screen */
+  .quote{height:auto;min-height:80svh;padding-block:96px}
+
+  /* footer word fits the screen */
+  .cta-word{font-size:15.5vw}
+
+  /* project page */
+  .proj-head{padding:20px 0 28px}
+  .proj-head h2{font-size:clamp(24px,8.2vw,64px);overflow-wrap:break-word}
+  .proj-cover{height:auto;aspect-ratio:4/3}
+  .proj-text{padding:40px 0;gap:12px}
+  .proj-next b{font-size:clamp(22px,7.6vw,56px);overflow-wrap:break-word}
+  .lightbox img{max-height:80svh}
+
+  /* touch targets */
+  .stack-btn{width:52px;height:52px}
+  .foot nav{gap:18px 22px}
+  .foot nav a{padding:6px 0}
+}
