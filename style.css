@@ -527,3 +527,12 @@ body.morphing .hero3d{z-index:8100}
   .foot nav{gap:18px 22px}
   .foot nav a{padding:6px 0}
 }
+@media (max-width:900px){
+  /* larger tap areas (min ~44px) without changing the look */
+  .stack-dots{gap:4px}
+  .stack-dots button{position:relative;margin:0 4px}
+  .stack-dots button::after{content:"";position:absolute;inset:-18px -8px}
+  .copy{padding:11px 18px;font-size:11px}
+  .contact-grid .ci>a{display:inline-block;padding:8px 4px}
+  .foot .brand{padding:10px 0}
+}
