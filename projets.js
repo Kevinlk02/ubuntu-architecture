@@ -62,21 +62,21 @@ const S2R = [
 const FONDATEURS = [
   {
     nom: 'Kebe Koulouhar Stéphane',
-    role: 'Co-fondateur — Architecte',
+    role: 'Co-fondateur — Concepteur en architecture',
     photo: 'img/team-kebe.webp',
     citation: "Un lieu juste naît de l'écoute : de ceux qui l'habitent, de la terre qui le porte et de la culture qui le raconte.",
     bio: "Une architecture durable et ancrée, nourrie des traditions locales et du design africain, attentive aux besoins de ceux qui l’habitent et au contexte culturel et environnemental de chaque lieu."
   },
   {
     nom: "Kouawo Kevin",
-    role: "Co-fondateur — Architecte",
+    role: "Co-fondateur — Concepteur en architecture",
     photo: "img/team-kevin.webp",
     citation: "Construire, c'est relier : la terre à la lumière, la mémoire au présent, et chaque personne à celles qui l'entourent.",
     bio: "Une architecture qui raconte une histoire : la terre, la brique, le claustra et les motifs réinterprétés dans des espaces contemporains, chaleureux et incarnés."
   },
   {
     nom: "Latey Kodjo Christ Hénoc",
-    role: "Co-fondateur — Architecte",
+    role: "Co-fondateur — Concepteur en architecture",
     photo: "img/team-enock.webp",
     citation: "Avant de dessiner, il faut lire le site : sa pente, son soleil, ses usages. Le projet juste est celui qui lui répond.",
     bio: "Une architecture minimaliste et durable : des volumes épurés, des matériaux sobres et une conception bioclimatique pour bâtir moins, mais mieux, en accord avec son environnement."
